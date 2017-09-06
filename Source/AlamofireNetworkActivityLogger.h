@@ -25,7 +25,8 @@
 //  SOFTWARE.
 
 
-#import <UIKit/UIKit.h>
+
+@import Foundation;
 
 //! Project version number for AlamofireNetworkActivityLogger.
 FOUNDATION_EXPORT double AlamofireNetworkActivityLoggerVersionNumber;

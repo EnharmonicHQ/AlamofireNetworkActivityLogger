@@ -17,6 +17,7 @@
 		AB2A9A831DBB54D2004FC92E /* NetworkActivityLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2A9A391DBB46C1004FC92E /* NetworkActivityLogger.swift */; };
 		AB2A9A841DBB54D2004FC92E /* NetworkActivityLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2A9A391DBB46C1004FC92E /* NetworkActivityLogger.swift */; };
 		AB2A9A861DBB5522004FC92E /* Info-tvOS.plist in Resources */ = {isa = PBXBuildFile; fileRef = AB2A9A851DBB5522004FC92E /* Info-tvOS.plist */; };
+		ABF8946A1F5F995E002ACBF1 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB2A9A4B1DBB4E8A004FC92E /* Alamofire.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABF8946A1F5F995E002ACBF1 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
