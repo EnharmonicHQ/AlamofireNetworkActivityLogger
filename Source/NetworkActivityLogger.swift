@@ -61,8 +61,7 @@ public class NetworkActivityLogger {
     /// Omit requests which match the specified predicate, if provided.
     public var filterPredicate: NSPredicate?
 
-    private let startDatesAccessQueue = DispatchQueue(label: "AlamofireNetworkActivityLogger.NetworkActivityLogger.startDatesAccessQueue",
-                                                      attributes: .concurrent)
+    private let startDatesAccessQueue = DispatchQueue(label: "AlamofireNetworkActivityLogger.NetworkActivityLogger.startDatesAccessQueue")
 
     private var _startDates: [URLSessionTask: Date]
     private var startDates: [URLSessionTask: Date] {
@@ -70,7 +69,7 @@ public class NetworkActivityLogger {
             return startDatesAccessQueue.sync { return _startDates }
         }
         set(dates) {
-            startDatesAccessQueue.async { self._startDates = dates }
+            startDatesAccessQueue.sync { self._startDates = dates }
         }
     }
     
