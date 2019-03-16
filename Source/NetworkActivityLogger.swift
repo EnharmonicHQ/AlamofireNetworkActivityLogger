@@ -130,10 +130,10 @@ public class NetworkActivityLogger {
         
         startDates[task] = Date()
         
-        logDivider()
-        
         switch level {
         case .debug:
+            logDivider()
+            
             print("\(httpMethod) '\(requestURL.absoluteString)':")
             
             if let httpHeadersFields = request.allHTTPHeaderFields {
@@ -144,6 +144,8 @@ public class NetworkActivityLogger {
                 print(httpBodyString)
             }
         case .info:
+            logDivider()
+            
             print("\(httpMethod) '\(requestURL.absoluteString)'")
         default:
             break
@@ -172,14 +174,11 @@ public class NetworkActivityLogger {
             startDates[task] = nil
         }
         
-        logDivider()
-        
         if let error = task.error {
             switch level {
-            case .debug,
-                 .info,
-                 .warn,
-                 .error:
+            case .debug, .info, .warn, .error:
+                logDivider()
+                
                 print("[Error] \(httpMethod) '\(requestURL.absoluteString)' [\(String(format: "%.04f", elapsedTime)) s]:")
                 print(error)
             default:
@@ -192,6 +191,8 @@ public class NetworkActivityLogger {
             
             switch level {
             case .debug:
+                logDivider()
+                
                 print("\(String(response.statusCode)) '\(requestURL.absoluteString)' [\(String(format: "%.04f", elapsedTime)) s]:")
                 
                 logHeaders(headers: response.allHeaderFields)
@@ -211,6 +212,8 @@ public class NetworkActivityLogger {
                     }
                 }
             case .info:
+                logDivider()
+                
                 print("\(String(response.statusCode)) '\(requestURL.absoluteString)' [\(String(format: "%.04f", elapsedTime)) s]")
             default:
                 break
@@ -220,7 +223,6 @@ public class NetworkActivityLogger {
 }
 
 private extension NetworkActivityLogger {
-    
     func logDivider() {
         print("---------------------")
     }
@@ -232,5 +234,4 @@ private extension NetworkActivityLogger {
         }
         print("]")
     }
-    
 }
